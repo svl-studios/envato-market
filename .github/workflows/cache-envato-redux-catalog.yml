@@ -1,0 +1,28 @@
+name: Cache Envato Redux Catalog
+on: 
+  workflow_dispatch:
+  schedule:
+  - cron:  '0 0 * * *'
+jobs:
+  composer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get current date
+        id: date
+        run: echo " ::set-output name=date::$(date +'%Y-%m-%d')"
+      - uses: actions/checkout@v1
+      - uses: nanasess/setup-php@master
+        with:
+          php-version: '8.0'
+
+      - run: php ./run.php ${{ secrets.GOOGLE_TOKEN }}
+        env:
+          ENVATO_TOKEN: ${{secrets.ENVATO_TOKEN}}
+
+      - run: git config --global user.email "support@svlstudios.com" && git config --global user.name "SVL Studios"
+      - run: git add -f -A
+      - run: git commit -m "Envato Redux Catalog Update: ${{ steps.date.outputs.date }} (Build $GITHUB_RUN_NUMBER)"
+      - run: git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:master
+      
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
