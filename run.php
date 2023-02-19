@@ -23,8 +23,9 @@ for ( $i = 1; $i <= $count; $i ++ ) {
 	$data  = $client->catalog->collection(['id' => 4201392 ,'page' => $i]);
 	$json  = json_encode( $data->results );
 	$cache = dirname( __FILE__ ) . '/envato-market-' . $i . '.json';
-
-	file_put_contents( $cache, $json );
+echo $cache;
+	$x = file_put_contents( $cache, $json );
+	echo 'Ret: ' . $x;
 }
 
 return;
