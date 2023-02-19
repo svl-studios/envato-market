@@ -15,6 +15,7 @@ $client = new Herbert\EnvatoClient($token);
 
 $list = $client->catalog->collection(['id' => 4201392 ,'page' => 1]);
 
+echo "Saving Page Count File\n\n";
 file_put_contents( $count_file, $list->results['pagination']['pages'] );
 
 return;
