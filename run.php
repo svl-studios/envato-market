@@ -29,8 +29,6 @@ for ( $i = 1; $i <= $count; $i ++ ) {
 
 return;
 
-$gFileminPHP       = dirname( __FILE__ ) . '/googlefonts.php';
-
 $fonts             = array();
 
 $arrContextOptions = array(
