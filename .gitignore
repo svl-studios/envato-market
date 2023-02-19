@@ -34,12 +34,10 @@ Thumbs.db
 
 # Composer #
 ##########
-vendors/composer/
 !assets/js/vendor/
 wpcs/
 ../composer.lock
 composer.lock
-/vendor/
 
 # Bower #
 ##########
