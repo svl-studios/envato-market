@@ -15,7 +15,7 @@ jobs:
         with:
           php-version: '8.0'
 
-      - run: php ./run.php ${{ secrets.GOOGLE_TOKEN }}
+      - run: php ./run.php ${{ secrets.ENVATO_TOKEN }}
         env:
           ENVATO_TOKEN: ${{secrets.ENVATO_TOKEN}}
 
