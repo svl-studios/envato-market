@@ -21,7 +21,7 @@ jobs:
 
       - run: git config --global user.email "support@svlstudios.com" && git config --global user.name "SVL Studios"
       - run: git add -f -A
-      - run: git commit -m "Envato Redux Catalog Update: ${{ steps.date.outputs.date }} (Build $GITHUB_RUN_NUMBER)"
+      - run: git diff --exit-code || git commit -m "Envato Redux Catalog Update: ${{ steps.date.outputs.date }} (Build $GITHUB_RUN_NUMBER)"
       - run: git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:main
       
         env:
