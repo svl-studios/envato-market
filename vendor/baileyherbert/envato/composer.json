@@ -1,0 +1,33 @@
+{
+    "name": "baileyherbert/envato",
+    "description": "Complete PHP client for the Envato API.",
+    "type": "library",
+    "keywords": ["envato", "envato api", "envato v3", "envato market"],
+    "homepage": "https://bailey.sh/",
+    "version": "3.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bailey Herbert",
+            "email": "bailey.herbert@hotmail.com",
+            "homepage": "https://github.com/baileyherbert"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "^6.5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Herbert\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Herbert\\Tests\\Envato\\": "tests/"
+        }
+    }
+}
