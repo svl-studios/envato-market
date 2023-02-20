@@ -91,6 +91,9 @@ $stats['revenue'] = '$' . number_format( $stats['revenue'] );
 // Count total authors.
 $stats['authors'] = count( $stats['author'] );
 
+// Unset author array.
+unset( $stats['author'] );
+
 // Convert array to JSON.
 $json = json_encode( $stats );
 
