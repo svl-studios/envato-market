@@ -3,21 +3,34 @@
 // Set timezone to UTC.
 date_default_timezone_set( 'UTC' );
 
+// Set GitHub to main.
 $output = shell_exec( 'git log -1' );
 echo shell_exec( 'git checkout -f main' );
 
+// Requite composer autoload.
 require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 
+// Get secret envato token.
 $key    = $argv[1];
+
+// Init Envato API.
 $token  = new Herbert\Envato\Auth\Token( $key );
+
+// Set Envato client.
 $client = new Herbert\EnvatoClient($token);
+
+// Get first page of collection.
 $list   = $client->catalog->collection(['id' => 4201392 ,'page' => 1]);
+
+// Determine page count of collection.
 $count  = $list->results['pagination']['pages'];
 
+// Enumerate collection pages.
 echo "Saving Redux Item Caches\n\n";
-$all = array();
 
+$all = array();
 for ( $i = 1; $i <= $count; $i ++ ) {
+
 	// Get associative array data from specified page.
 	$data  = $client->catalog->collection(['id' => 4201392 ,'page' => $i]);
 
